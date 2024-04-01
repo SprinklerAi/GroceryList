@@ -12,17 +12,17 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ListGrocery listGrocery;
     private RecyclerView rvGroceries;
 
+    private GroceryListAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ListGrocery.getInstance().loadGroceries(getApplicationContext());
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -30,14 +30,19 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-
-        listGrocery = ListGrocery.getInstance();
+        ListGrocery listGrocery = ListGrocery.getInstance();
+        adapter = new GroceryListAdapter(getApplicationContext(), listGrocery.getGroceries());
         rvGroceries = findViewById(R.id.rvGroceries);
         rvGroceries.setLayoutManager(new LinearLayoutManager(this));
-        rvGroceries.setAdapter(new GroceryListAdapter(getApplicationContext(), listGrocery.getGroceries()));
-    }
+        rvGroceries.setAdapter(adapter);    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (adapter != null) {
+            adapter.notifyDataSetChanged();
+        }
+    }
     public void openAddGroceryActivity(View view) {
         Intent intent = new Intent(this, AddGroceryActivity.class);
         startActivity(intent);

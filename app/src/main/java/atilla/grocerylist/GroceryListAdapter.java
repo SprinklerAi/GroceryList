@@ -36,12 +36,6 @@ public class GroceryListAdapter extends RecyclerView.Adapter<GroceryViewHolder> 
         });
     }
 
-
-
-
-
-
-
     @Override
     public int getItemCount() {
         return groceries.size();
