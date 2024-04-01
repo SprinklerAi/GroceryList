@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         ListGrocery listGrocery = ListGrocery.getInstance();
+        listGrocery.loadGroceries(getApplicationContext());
         adapter = new GroceryListAdapter(getApplicationContext(), listGrocery.getGroceries());
         rvGroceries = findViewById(R.id.rvGroceries);
         rvGroceries.setLayoutManager(new LinearLayoutManager(this));
