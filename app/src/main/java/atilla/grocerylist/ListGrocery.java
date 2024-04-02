@@ -29,7 +29,7 @@ public class ListGrocery {
 
     public Grocery getGroceryByName(String name) {
         for (Grocery grocery : groceries) {
-            if (grocery.getGroceryName().equalsIgnoreCase(name)) {
+            if (grocery.getName().equalsIgnoreCase(name)) {
                 return grocery;
             }
         }
@@ -39,7 +39,7 @@ public class ListGrocery {
 
     public void removeGrocery(String name) {
         for (Grocery g : groceries) {
-            if (g.getGroceryName().equalsIgnoreCase(name)) {
+            if (g.getName().equalsIgnoreCase(name)) {
                 groceries.remove(g);
                 return;
             }

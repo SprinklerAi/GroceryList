@@ -18,11 +18,11 @@ public class Grocery implements Serializable {
     public void setGroceryName(String groceryName) {
         this.groceryName = groceryName;
     }
-    public String getGroceryName() {
+    public String getName() {
         return groceryName;
     }
 
-    public void setGroceryNote(String groceryNote) {
+    public void getNote(String groceryNote) {
         this.groceryNote = groceryNote;
     }
 

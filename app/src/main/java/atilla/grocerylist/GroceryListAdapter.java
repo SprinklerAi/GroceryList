@@ -27,12 +27,12 @@ public class GroceryListAdapter extends RecyclerView.Adapter<GroceryViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull GroceryViewHolder holder, int position) {
-        holder.textGroceryName.setText(groceries.get(position).getGroceryName());
+        holder.textGroceryName.setText(groceries.get(position).getName());
         holder.textGroceryNote.setText(groceries.get(position).getGroceryNote());
         holder.editTextGroceryNote.setText(groceries.get(position).getGroceryNote());
         holder.imageDelete.setOnClickListener(view -> {
             int pos = holder.getAdapterPosition();
-            ListGrocery.getInstance().removeGrocery(groceries.get(pos).getGroceryName());
+            ListGrocery.getInstance().removeGrocery(groceries.get(pos).getName());
             notifyItemRemoved(pos);
         });
 
@@ -40,8 +40,8 @@ public class GroceryListAdapter extends RecyclerView.Adapter<GroceryViewHolder> 
             int pos = holder.getAdapterPosition();
 
             if (holder.editTextGroceryNote.getVisibility() == View.VISIBLE) {
-                Grocery grocery = ListGrocery.getInstance().getGroceryByName(groceries.get(pos).getGroceryName());
-                grocery.setGroceryNote(holder.editTextGroceryNote.getText().toString());
+                Grocery grocery = ListGrocery.getInstance().getGroceryByName(groceries.get(pos).getName());
+                grocery.getNote(holder.editTextGroceryNote.getText().toString());
                 holder.editTextGroceryNote.setVisibility(View.GONE);
                 notifyDataSetChanged();
             } else {
