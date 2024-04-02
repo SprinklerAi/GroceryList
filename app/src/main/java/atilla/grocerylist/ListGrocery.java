@@ -23,17 +23,28 @@ public class ListGrocery {
         return listGrocery;
     }
 
-    public ArrayList<Grocery> getGroceries() {
-        return groceries;
-    }
-
-
     public void addGrocery(Grocery grocery) {
         groceries.add(grocery);
     }
 
+    public void getGroceryByName(String name) {
 
+    }
 
+    public void removeGrocery(String id) {
+        int i = 0;
+        for (Grocery g : groceries) {
+            if (g.getId().equals(id)) {
+                break;
+            }
+            i++;
+        }
+        groceries.remove(i);
+    }
+
+    public ArrayList<Grocery> getGroceries() {
+        return groceries;
+    }
 
     public void saveGroceries(Context context) {
         try {
@@ -66,15 +77,4 @@ public class ListGrocery {
         return groceries.get(id);
     }
 
-
-    public void removeGrocery(String id) {
-        int i = 0;
-        for (Grocery g : groceries) {
-            if (g.getId().equals(id)) {
-                break;
-            }
-            i++;
-        }
-        groceries.remove(i);
-    }
 }
