@@ -2,6 +2,7 @@ package atilla.grocerylist;
 
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class GroceryViewHolder extends RecyclerView.ViewHolder {
     TextView textGroceryName, textGroceryNote;
     ImageView imageEdit, imageDelete;
+    EditText editTextGroceryNote;
 
     public GroceryViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -18,5 +20,6 @@ public class GroceryViewHolder extends RecyclerView.ViewHolder {
         textGroceryNote = itemView.findViewById(R.id.textGroceryNote);
         imageEdit = itemView.findViewById(R.id.imageEdit);
         imageDelete = itemView.findViewById(R.id.imageDelete);
+        editTextGroceryNote = itemView.findViewById(R.id.editTextGroceryNote);
     }
 }

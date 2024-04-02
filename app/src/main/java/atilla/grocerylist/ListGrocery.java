@@ -62,6 +62,11 @@ public class ListGrocery {
         }
     }
 
+    public Grocery getGroceryByIdWithoutRemove(int id) {
+        return groceries.get(id);
+    }
+
+
     public void removeGrocery(String id) {
         int i = 0;
         for (Grocery g : groceries) {
