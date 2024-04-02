@@ -22,11 +22,11 @@ public class Grocery implements Serializable {
         return groceryName;
     }
 
-    public void getNote(String groceryNote) {
+    public void setNote(String groceryNote) {
         this.groceryNote = groceryNote;
     }
 
-    public String getGroceryNote() {
+    public String getNote() {
         return groceryNote;
     }
 }

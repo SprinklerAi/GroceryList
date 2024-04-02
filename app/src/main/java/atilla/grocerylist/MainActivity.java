@@ -48,4 +48,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AddGroceryActivity.class);
         startActivity(intent);
     }
+
+    public void sortGroceriesByAlphabet() {
+
+    }
+    public void sortGroceriesByTime() {
+
+    }
 }
