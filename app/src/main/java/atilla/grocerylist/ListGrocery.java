@@ -38,15 +38,14 @@ public class ListGrocery {
 
 
     public void removeGrocery(String name) {
-        int i = 0;
         for (Grocery g : groceries) {
-            if (g.getId().equals(name)) {
-                break;
+            if (g.getGroceryName().equalsIgnoreCase(name)) {
+                groceries.remove(g);
+                return;
             }
-            i++;
         }
-        groceries.remove(i);
     }
+
 
     public ArrayList<Grocery> getGroceries() {
         return groceries;
