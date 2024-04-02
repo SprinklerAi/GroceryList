@@ -32,7 +32,7 @@ public class GroceryListAdapter extends RecyclerView.Adapter<GroceryViewHolder> 
         holder.editTextGroceryNote.setText(groceries.get(position).getGroceryNote());
         holder.imageDelete.setOnClickListener(view -> {
             int pos = holder.getAdapterPosition();
-            ListGrocery.getInstance().removeGrocery(groceries.get(pos).getGroceryName());
+            String name = groceries.get(pos).getGroceryName();
             notifyItemRemoved(pos);
         });
 
