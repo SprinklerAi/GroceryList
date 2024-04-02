@@ -37,10 +37,10 @@ public class ListGrocery {
     }
 
 
-    public void removeGrocery(String id) {
+    public void removeGrocery(String name) {
         int i = 0;
         for (Grocery g : groceries) {
-            if (g.getId().equals(id)) {
+            if (g.getId().equals(name)) {
                 break;
             }
             i++;
