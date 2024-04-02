@@ -80,14 +80,5 @@ public class ListGrocery {
     }
 
 
-    public String getIdByGroceryName(String name) {
-        Grocery grocery = getGroceryByName(name);
-        if (grocery != null) {
-            return grocery.getId();
-        }
-        return null;
-    }
-
-
 
 }
