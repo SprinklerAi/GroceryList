@@ -27,9 +27,15 @@ public class ListGrocery {
         groceries.add(grocery);
     }
 
-    public void getGroceryByName(String name) {
-
+    public Grocery getGroceryByName(String name) {
+        for (Grocery grocery : groceries) {
+            if (grocery.getGroceryName().equalsIgnoreCase(name)) {
+                return grocery;
+            }
+        }
+        return null;
     }
+
 
     public void removeGrocery(String id) {
         int i = 0;
@@ -73,8 +79,15 @@ public class ListGrocery {
         }
     }
 
-    public Grocery getGroceryByIdWithoutRemove(int id) {
-        return groceries.get(id);
+
+    public String getIdByGroceryName(String name) {
+        Grocery grocery = getGroceryByName(name);
+        if (grocery != null) {
+            return grocery.getId();
+        }
+        return null;
     }
+
+
 
 }

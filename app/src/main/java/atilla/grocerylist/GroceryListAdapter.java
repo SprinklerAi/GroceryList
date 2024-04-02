@@ -40,7 +40,7 @@ public class GroceryListAdapter extends RecyclerView.Adapter<GroceryViewHolder> 
             int pos = holder.getAdapterPosition();
 
             if (holder.editTextGroceryNote.getVisibility() == View.VISIBLE) {
-                Grocery grocery = ListGrocery.getInstance().getGroceryByIdWithoutRemove(pos);
+                Grocery grocery = groceries.get(pos);
                 grocery.setGroceryNote(holder.editTextGroceryNote.getText().toString());
                 holder.editTextGroceryNote.setVisibility(View.GONE);
                 notifyDataSetChanged();
