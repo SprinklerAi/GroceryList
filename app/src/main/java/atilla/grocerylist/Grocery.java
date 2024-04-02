@@ -15,11 +15,15 @@ public class Grocery implements Serializable {
     public String getId() {
         return id;
     }
-    public void setId(String id) {
-        this.id = id;
+    public void setGroceryName(String groceryName) {
+        this.groceryName = groceryName;
     }
     public String getGroceryName() {
         return groceryName;
+    }
+
+    public void setGroceryNote(String groceryNote) {
+        this.groceryNote = groceryNote;
     }
 
     public String getGroceryNote() {

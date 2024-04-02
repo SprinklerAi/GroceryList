@@ -29,30 +29,26 @@ public class GroceryListAdapter extends RecyclerView.Adapter<GroceryViewHolder> 
     public void onBindViewHolder(@NonNull GroceryViewHolder holder, int position) {
         holder.textGroceryName.setText(groceries.get(position).getGroceryName());
         holder.textGroceryNote.setText(groceries.get(position).getGroceryNote());
-        holder.editTextGroceryNote.setText(groceries.get(position).getId());
+        holder.editTextGroceryNote.setText(groceries.get(position).getGroceryNote());
         holder.imageDelete.setOnClickListener(view -> {
             int pos = holder.getAdapterPosition();
             ListGrocery.getInstance().removeGrocery(groceries.get(pos).getId());
             notifyItemRemoved(pos);
         });
 
-        holder.imageEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int pos = holder.getAdapterPosition();
+        holder.imageEdit.setOnClickListener(view -> {
+            int pos = holder.getAdapterPosition();
 
-                if(holder.editTextGroceryNote.getVisibility() == View.VISIBLE) {
-                    Grocery rocket = ListGrocery.getInstance().getGroceryByIdWithoutRemove(pos);
-                    rocket.setId(holder.editTextGroceryNote.getText().toString());
-                    holder.editTextGroceryNote.setVisibility(View.GONE);
-                    notifyDataSetChanged();
-                }
-                else {
-                    holder.editTextGroceryNote.setVisibility(View.VISIBLE);
-                }
-
+            if (holder.editTextGroceryNote.getVisibility() == View.VISIBLE) {
+                Grocery grocery = ListGrocery.getInstance().getGroceryByIdWithoutRemove(pos);
+                grocery.setGroceryNote(holder.editTextGroceryNote.getText().toString());
+                holder.editTextGroceryNote.setVisibility(View.GONE);
+                notifyDataSetChanged();
+            } else {
+                holder.editTextGroceryNote.setVisibility(View.VISIBLE);
             }
         });
+
 
 
     }
